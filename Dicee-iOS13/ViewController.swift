@@ -14,31 +14,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var diceImageView1: UIImageView!
     
     @IBOutlet weak var diceImageView2: UIImageView!
-    
-    var leftDiceNumber = 1
-    var rightDiceNumber = 5
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        //Who           What    Value
-      
-    }
 
     @IBAction func rollButtonPressed(_ sender: UIButton) {
-        //leftDiceNumber = 1
-        print("leftDiceNumber at beginning = \(leftDiceNumber)")
-        diceImageView1.image = [ #imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix") ][leftDiceNumber]
         
-        diceImageView2.image = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix") ][rightDiceNumber]
+        // creating let variable (dice numbers will never change) to be called upon below
+        let diceArray = [ #imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix") ]
         
-        leftDiceNumber = leftDiceNumber + 1
-        //leftDiceNumber = 2
-       print("leftDiceNumber at the end = \(leftDiceNumber)")
-        
-        rightDiceNumber = rightDiceNumber - 1
+        // calling the dice images from the IBOutlet and from the array and assigning .randomElement() to assign random dicenumbers for every click of the roll button
+        diceImageView1.image = diceArray.randomElement()
+        diceImageView2.image = diceArray.randomElement()
         
     }
     
 }
+
+
 
